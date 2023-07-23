@@ -10,7 +10,9 @@ public class Main {
 		
 		Box b = Box.INSTANCE; 
 		System.out.println(b.hashCode());
-		
+		b.test();   // This method will be printed and will give output
+
+		// This will give Runtime Error as we are trying to create second constructor
 		Constructor<Box> constructor = Box.class.getDeclaredConstructor();
 		constructor.setAccessible(true);
 		Box b2 = constructor.newInstance();
@@ -25,4 +27,8 @@ public enum Box {
 	
 	INSTANCE;
 
+	public void test() {
+		System.out.println("Test method");
+	}
+	
 }
